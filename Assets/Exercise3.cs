@@ -16,8 +16,16 @@ public class Exercise3 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S))
         {
             // Uncomment the line below after you write the method
-           //transform.position = RandomPosition();
+           transform.position = RandomPosition();
         }
+    }
+
+    public Vector2 RandomPosition()
+    {
+        float xPos = Random.Range(-5.0f, 5.0f);
+        float yPos = Random.Range(-5.0f, 5.0f);
+        Vector2 randomPos = new Vector2(xPos, yPos);
+        return randomPos;
     }
 
     /****************************************

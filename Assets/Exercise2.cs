@@ -1,12 +1,22 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity;
 using UnityEngine;
 
 public class Exercise2 : MonoBehaviour
 {
     public GameObject rainDrop;
     public GameObject rainSpawn;
+
     
+    void Rain(int drops)
+    {
+        for (int i = 0; i < drops; i++)
+        {
+            Instantiate(rainDrop, rainSpawn.transform.position,rainSpawn.transform.rotation);
+        }
+    }
 
     /**********************************
      * Write a method called Rain
@@ -21,6 +31,9 @@ public class Exercise2 : MonoBehaviour
     void Update()
     {
         //If the user presses the R key, call Rain(10);
-      
+      if (Input.GetKeyDown(KeyCode.R))
+        {
+            Rain(10);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Exercise1 : MonoBehaviour
@@ -7,6 +8,21 @@ public class Exercise1 : MonoBehaviour
     //VARIABLES
     private float speed = 0;
     private Vector2 direction = Vector2.right;
+
+    IEnumerator ChangeDirection()
+    {
+        speed = 3;
+        direction = Vector2.right;
+        yield return new WaitForSeconds(2);
+        direction = Vector2.left;
+        yield return new WaitForSeconds(2);
+        speed = 0;
+    }
+
+
+
+
+
 
 
     /******************************
@@ -27,7 +43,10 @@ public class Exercise1 : MonoBehaviour
     {
         transform.Translate(direction * speed * Time.deltaTime);
         //Start the ChangeDirection coroutine if the A key is pressed.
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartCoroutine(ChangeDirection());
+        }
        
 
        
